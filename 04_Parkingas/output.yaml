@@ -1,0 +1,8 @@
+age: 20
+items:
+- money
+- drugs
+- guns
+- !!python/object:__main__.Car
+  mark: tayota
+name: Jonas
