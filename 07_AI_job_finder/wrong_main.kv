@@ -1,0 +1,70 @@
+<QuestionWidget>:
+    # This class is used as the viewclass in the RecycleView
+    # The means this widget will be instanced to view one element of data from the data list.
+    # The RecycleView data list is a list of dictionaries.  The keys in the dictionary specify the
+    # attributes of the widget.
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+
+        MDLabel:
+            text: root.question
+            halign: 'center'  # Center the text horizontally
+            font_size: '20sp'
+
+        BoxLayout:
+            size_hint_y: None
+            height: '10dp'  # Adjust the height for extra space
+
+        MDLabel:
+            text: "Dont Agree"
+            halign: 'center'  # Center the text horizontally
+
+        MDCheckbox:
+            group: root.question_id
+            active: root.checkbox1_active
+
+        MDLabel:
+            text: "Partially Agree"
+            halign: 'center'  # Center the text horizontally
+
+        MDCheckbox:
+            group: root.question_id
+            active: root.checkbox2_active
+
+        MDLabel:
+            text: "Strongly Agree"
+            halign: 'center'  # Center the text horizontally
+
+        MDCheckbox:
+            group: root.question_id
+            active: root.checkbox3_active
+
+BoxLayout:
+    orientation: 'vertical'
+
+    QuestionList: # A Reycleview
+        id: question_list
+        viewclass: 'QuestionWidget'  # The view class is TwoButtons, defined above.
+        data: self.questions  # the data is a list of dicts (questions).
+        scroll_type: ['bars', 'content']
+        bar_width: 10
+
+        RecycleBoxLayout:
+            # This layout is used to hold the Recycle widgets
+            default_size: None, dp(250)   # This sets the height of the BoxLayout that holds a QuestionWidget instance.
+
+
+            default_size_hint: 1, None
+            size_hint_y: None
+
+            height: self.minimum_height   # To scroll you need to set the layout height.
+            orientation: 'vertical'
+
+    Button:
+        text: 'Submit'
+        on_release: question_list.submit()
+        size_hint_y: None
+        height: dp(48)
