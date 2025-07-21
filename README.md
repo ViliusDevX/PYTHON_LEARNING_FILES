@@ -3,7 +3,7 @@
 
 This repository contains my Python learning materials developed during the ITFightClub course (itfightclub.lt). 
 
-I began this journey on April 12th, 2023, with the goal of building a strong foundation in Python programming. 
+I began this journey on April 7th, 2023, with the goal of building a strong foundation in Python programming. 
 
 The content here includes exercises, small projects, and notes I used while practicing until December 19th, 2024.
 
